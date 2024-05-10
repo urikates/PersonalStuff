@@ -24,9 +24,9 @@ def startprocess():
     pdf.load()
     pdf.tree.write('CADL-JUN21-G.xml', pretty_print=True)
     pdf
+    
+    ###Extracting Information
     pages = pdf.doc.catalog['Pages'].resolve()['Count']
-    
-    
     pagenumber=pdf.doc.catalog['Pages'].resolve()['Count']
     while pagenumber < pages:
             skip ##Just to avoid errors 
