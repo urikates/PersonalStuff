@@ -18,7 +18,7 @@ import tkinter as tk
 #debugoutput = open('splited info.txt', 'w')
 
 #Load PDF File
-pathfile = 'C:/Users/urika/Documents/Repos/PersonalStuff/CFDIImport/CADL-JUN21-G.pdf'
+pathfile = '/Users/urielvillavicencio/Documents/Repos/PersonalStuff/CFDIImport/gulk-ene25-gastos.pdf'
 pdffile = pdfquery.PDFQuery(pathfile)
 pdffile.load()
 
@@ -52,7 +52,10 @@ with open('processfile.xml', 'r') as xmlfile:
                 #print(element.split()[2]) #debug
         
          #Extraction of "Nombre o Razon Social (Emisor) data
-            if "Nombre o Raz&#243;n Social:" in element and 'LETICIA CALDERON DIAZ' not in element and 'CALDERON DIAZ LETICIA' not in element and 'Leticia Calderon Diaz' not in element and 'Calderon Diaz Leticia' not in element:
+            #if "Nombre o Raz&#243;n Social:" in element and 'LETICIA CALDERON DIAZ' not in element and 'CALDERON DIAZ LETICIA' not in element and 'Leticia Calderon Diaz' not in element and 'Calderon Diaz Leticia' not in element:
+            if "Nombre o Raz&#243;n Social: " in element and 'KARINA GUERRERO LUNA' not in element:
+            #if "Nombre o Raz&#243;n Social: " in element and 'CARLOS SANCHEZ GONZALEZ' not in element: 
+            # if  "Nombre o Raz&#243;n Social: " in element and 'JAIME SANCHEZ RAMOS' not in element:
                 razonsociallist.append((element.split(":")[1]).split("<")[0])
                 #print((element.split(":")[1]).split("<")[0]) #debug
         
@@ -69,12 +72,12 @@ with open('processfile.xml', 'r') as xmlfile:
 
 #Start working with excel file 
 #Creation of excel file
-excelfilename = 'Output.xlsx'
+excelfilename = 'gulk-ene25.xlsx'
 excelfile = xlsxwriter.Workbook(excelfilename)
 
 #Adding sheet based on document
-#Name of the sheet
-sheetname = 'Junio 2021'
+#Name of the sheet 
+sheetname = 'Enero 2025'
 worksheet = excelfile.add_worksheet(sheetname)
 
 #Writting titles
